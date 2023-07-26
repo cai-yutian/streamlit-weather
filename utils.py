@@ -48,16 +48,18 @@ class OpenMeteoAPIConnection(ExperimentalBaseConnection[requests.Session]):
 
         @cache_data(ttl=cache_time)
         def _query_hourly_temp_forecast(
-            latitude: float, 
+            latitude: float,
             longitude: float,
-            hourly:List = ["temperature_2m", "apparent_temperature"],
-            **kwargs: Any
+            hourly: List = ["temperature_2m", "apparent_temperature"],
+            **kwargs: Any,
         ) -> pd.DataFrame:
             url = self.base_url
-            params = {"latitude": latitude, 
-                      "longitude": longitude, 
-                      "hourly": hourly,
-                      **kwargs}
+            params = {
+                "latitude": latitude,
+                "longitude": longitude,
+                "hourly": hourly,
+                **kwargs,
+            }
 
             try:
                 response = self._instance.get(url, params=params)
