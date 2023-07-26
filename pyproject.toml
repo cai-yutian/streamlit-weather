@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "streamlit-weather"
+version = "0.1.0"
+description = ""
+authors = ["Yutian Cai <yutian@etavolt.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.25.0"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
